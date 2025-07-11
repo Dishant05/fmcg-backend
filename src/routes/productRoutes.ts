@@ -149,7 +149,7 @@ router.post("/", authenticateToken, authorizeRoles("admin"), createProduct);
  *       404:
  *         description: Product not found
  */
-router.put("/", authenticateToken, authorizeRoles("admin"), updateProduct);
+router.put("/:id", authenticateToken, authorizeRoles("admin"), updateProduct);
 
 /**
  * @swagger
@@ -171,6 +171,11 @@ router.put("/", authenticateToken, authorizeRoles("admin"), updateProduct);
  *       404:
  *         description: Product not found
  */
-router.delete("/", authenticateToken, authorizeRoles("admin"), deleteProduct);
+router.delete(
+  "/:id",
+  authenticateToken,
+  authorizeRoles("admin"),
+  deleteProduct
+);
 
 export default router;
